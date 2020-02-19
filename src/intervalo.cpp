@@ -7,6 +7,18 @@ bool Intervalo::valido(double cinf,double csup, bool cerrinf, bool cerrsup){
    return (( cinf < csup ) || ( cinf == csup && cerrinf == cerrsup));
 }
 
+double Intervalo::getCotaSup() const {
+	return cotaSup;
+}
+
+bool Intervalo::dentroCotaInf() const {
+	return cerradoInf;
+}
+
+bool Intervalo::dentroCotaSup() const {
+	return cerradoSup;
+}
+
 void escribir(const Intervalo & obj) {
     if (obj.esVacio())
         cout << "(0)";
