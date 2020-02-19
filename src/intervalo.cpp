@@ -7,6 +7,33 @@ bool Intervalo::valido(double cinf,double csup, bool cerrinf, bool cerrsup){
    return (( cinf < csup ) || ( cinf == csup && cerrinf == cerrsup));
 }
 
+Intervalo::Intervalo(){
+	cotaInf = 0;
+	cotaSup = 0;
+}
+
+Intervalo::Intervalo(double cotaInferior, double cotaSuperior){
+	cerradoInf = true;
+   cerradoSup = true;
+	if (cotaInferior <= cotaSuperior) {
+		cotaInf = cotaInferior;
+    	cotaSup = cotaSuperior;
+	}
+}
+
+Intervalo::Intervalo(double cotaInferior, double cotaSuperior, bool cerradoInferior, bool cerradoSuperior){
+   if (cotaInferior <= cotaSuperior) {
+      cerradoInf = cerradoInferior;
+      cerradoSup = cerradoSuperior;
+      cotaInf = cotaInferior;
+      cotaSup = cotaSuperior;
+   }
+}
+
+double Intervalo::getCotaInf()const {
+   return cotaInf;
+}
+
 double Intervalo::getCotaSup() const {
 	return cotaSup;
 }
@@ -38,6 +65,17 @@ bool Intervalo::esVacio() const {
 	return vacio;
 }
 
+bool Intervalo::estaDentro(double n)const {
+   bool dentro;
+   if (cotaInf < n && n < cotaSup) {
+      dentro = true;
+   }
+   else {
+      dentro = false;
+   }
+
+   return dentro;
+}
 
 void escribir(const Intervalo & obj) {
     if (obj.esVacio())
