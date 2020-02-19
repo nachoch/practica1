@@ -14,8 +14,7 @@ OPT=-Wall -g
 PRJ=practica1
 
 
-# Las macros se usan en las reglas del makefile como si fuesen variables
-# que se sustituyen por su valor definido anteriormente
+
 all : $(BIN)/ejercicio
 
 $(BIN)/ejercicio: $(OBJ)/main.o $(OBJ)/intervalo.o
@@ -27,13 +26,27 @@ $(OBJ)/main.o : $(SRC)/main.cpp  $(OBJ)/intervalo.o
 $(OBJ)/intervalo.o: $(SRC)/intervalo.cpp $(INC)/intervalo.h
 	g++ $(OPT) -c $(SRC)/intervalo.cpp -o $(OBJ)/intervalo.o -I$(INC)
 
+#ajajjaja estoy comentando
 clean:
 	@echo "Limpiando ... "
 	rm -i -r -f $(OBJ)/*.o $(BIN)/* $(LIB)/* $(ZIP)/* $(DOC)/latex $(DOC)/html
-
+#mira mama
 zip: clean
 	@echo "Generando ZIP del proyecto " $(PRJ)
 	zip -r $(ZIP)/$(PRJ).zip *
 
 doxy:
 	doxygen $(DOC)/intervalo.doxy
+
+Yo creo que no ee
+
+esto son simplemente lineas de codigo
+para ver si estoy trabajando sobre mi branch
+y no sobre el branch master y poder ver luego
+
+
+las diferencias de cogigo con respecto a la version de este archivo en 
+el 
+branch master
+
+de paso he modificado y borrado algunas lineas del makefile
