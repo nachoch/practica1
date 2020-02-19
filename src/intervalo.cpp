@@ -19,6 +19,26 @@ bool Intervalo::dentroCotaSup() const {
 	return cerradoSup;
 }
 
+void Intervalo::setIntervalo(double cotaInferior, double cotaSuperior, bool cerradoInferior, bool cerradoSuperior){
+	cerradoInf = cerradoInferior;
+	cerradoSup = cerradoSuperior;
+	
+	if ( cotaInferior <= cotaSuperior){
+		cotaInf = cotaInferior;
+		cotaSup = cotaSuperior;
+	}
+}
+
+bool Intervalo::esVacio() const {
+	bool vacio = false;
+	
+	if (cotaInf == 0 && cotaSup == 0)
+		vacio = true;
+	
+	return vacio;
+}
+
+
 void escribir(const Intervalo & obj) {
     if (obj.esVacio())
         cout << "(0)";
