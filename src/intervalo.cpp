@@ -67,11 +67,33 @@ bool Intervalo::esVacio() const {
 
 bool Intervalo::estaDentro(double n)const {
    bool dentro;
-   if (cotaInf < n && n < cotaSup) {
-      dentro = true;
+   if (cerradoInf == true && cerradoSup == true) {
+      if (cotaInf <= n && n <= cotaSup) {
+         dentro = true;
+      } else{
+         dentro = false;
+      }
    }
-   else {
-      dentro = false;
+   else if (cerradoInf == false && cerradoSup == true) {
+      if (cotaInf < n && n <= cotaSup) {
+         dentro = true;
+      } else{
+         dentro = false;
+      }
+   }
+   else if (cerradoInf == true && cerradoSup == false) {
+      if (cotaInf <= n && n < cotaSup) {
+         dentro = true;
+      } else{
+         dentro = false;
+      }
+   }
+   else if (cerradoInf == false && cerradoSup == false){
+      if (cotaInf < n && n < cotaSup) {
+         dentro = true;
+      } else{
+         dentro = false;
+      }
    }
 
    return dentro;
