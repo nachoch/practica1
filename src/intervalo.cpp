@@ -49,7 +49,7 @@ bool Intervalo::dentroCotaSup() const {
 void Intervalo::setIntervalo(double cotaInferior, double cotaSuperior, bool cerradoInferior, bool cerradoSuperior){
 	cerradoInf = cerradoInferior;
 	cerradoSup = cerradoSuperior;
-	
+
 	if ( cotaInferior <= cotaSuperior){
 		cotaInf = cotaInferior;
 		cotaSup = cotaSuperior;
@@ -58,10 +58,10 @@ void Intervalo::setIntervalo(double cotaInferior, double cotaSuperior, bool cerr
 
 bool Intervalo::esVacio() const {
 	bool vacio = false;
-	
-	if (cotaInf == 0 && cotaSup == 0)
+
+	if (cotaInf == cotaSup && (cerradoInf == false) && (cerradoSup == false))
 		vacio = true;
-	
+
 	return vacio;
 }
 
